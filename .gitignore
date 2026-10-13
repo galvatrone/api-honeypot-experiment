@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+*runtime*/
+*.sqlite*
+*.db*
+*.log
+salt
+test-marker
+summary.json
+events.json
+events.csv
+summary.csv
+final-report.md

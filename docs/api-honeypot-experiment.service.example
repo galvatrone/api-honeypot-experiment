@@ -1,0 +1,22 @@
+# Install as a dedicated USER service only after HTTPS infrastructure is selected.
+# Replace /ABS/REPO and /ABS/PRIVATE-STATE; never reuse another service name.
+[Unit]
+Description=Inert API honeypot experiment
+
+[Service]
+Type=simple
+WorkingDirectory=/ABS/REPO
+ExecStart=/usr/bin/python /ABS/REPO/honeypot.py --state-dir /ABS/PRIVATE-STATE serve --port 8787 --trust-loopback-proxy
+Restart=on-failure
+RestartSec=5
+RestartPreventExitStatus=75
+UMask=0077
+NoNewPrivileges=true
+MemoryMax=128M
+TasksMax=40
+LimitNOFILE=128
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=default.target
