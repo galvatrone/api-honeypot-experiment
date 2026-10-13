@@ -2,6 +2,8 @@
 
 Controlled experiment observing calls to a dedicated test API after public code publication. All example keys are random fictional credentials for this experiment, with no access to real services. This project never contacts real API providers, scans repositories, executes commands from requests or connects callers to other systems.
 
+**Current status:** published on GitHub only at the owner’s request. The public API is not deployed; the `.invalid` address remains a placeholder. This publication alone cannot produce API observations.
+
 Python 3.11+; standard library only. Two lure IDs: `example-env` in `.env.example` and `python-client` in `client.py`. Lure attribution uses the fixed URL route, not the submitted key. Authorization values are ignored and never saved. A call can therefore be made without a key and does not prove the key was extracted from GitHub.
 
 ## Local run
@@ -45,7 +47,7 @@ Private output: `summary.json`, `summary.csv`, `events.json`, `events.csv`. The 
 
 ## HTTPS deployment and publication
 
-Infrastructure selection is pending. The `.invalid` endpoint is a placeholder, not a running public API. Before publishing the experiment:
+Infrastructure selection is pending. The `.invalid` endpoint is a placeholder, not a running public API. Before a future publication with a working public API:
 
 1. Select an owned dedicated HTTPS endpoint, TLS termination and host. Use the example nginx vhost and dedicated service in `docs/` only after replacing paths/domain. Keep state outside Git. Existing projects must remain unchanged.
 2. Disable raw request/access logs at every infrastructure layer, including any CDN/provider. Do not enable IP attribution through a CDN until its trusted address handling and data retention have been verified. The nginx example assumes a direct connection to the TLS proxy.
